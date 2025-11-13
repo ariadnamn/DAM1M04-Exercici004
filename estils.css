@@ -14,6 +14,9 @@ html, body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   color: #222;
   background: #fafcff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 h1 {
   max-width: 47%; 
@@ -22,6 +25,18 @@ h1 {
   text-align: center;
 }
 
+button {
+  background-color: rgb(255, 104, 117);
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.main-wrapper {
+  max-width: 1264px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+}
 /*TOPNAV*/
 .topnav {
   --horizontal-padding: 16px; /* àmbit local */
@@ -117,7 +132,9 @@ h1 {
 
 /*autocenter*/
 .autocenter {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   justify-items: center;
   flex: 1;
   align-items: center;
@@ -131,11 +148,7 @@ h1 {
   text-align: center;
 }
 /*targestes o cards*/
-body { 
-  font-family: "Open Sans";
-  margin: 0;
-  padding: 0;
-}
+
 .cardsContainer { 
   --horizPadding: 16px;
   
@@ -145,6 +158,12 @@ body {
   padding-left: var(--horizPadding);
   padding-right: var(--horizPadding);
   width: calc(100% - 2 * var(--horizPadding));
+}
+.cardsContainer2 { 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
 }
 .card0 { 
   border: solid 1px lightgray;
@@ -160,7 +179,9 @@ body {
 }
 .card0 > img { 
   box-sizing: border-box;
-  width: 100%;
+  width: 86%;
+  margin: 7%;
+  margin-top: 0px;
 }
 .card0 > div { 
   box-sizing: border-box;
@@ -216,6 +237,21 @@ body {
   overflow: hidden;
   width: 150px;
 }
+.car2 {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+  background-color: #878787;
+  border-radius: 20px;
+  flex: 0 1 auto;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  max-width: 896px;
+  margin-right: auto;
+  margin-left: auto;
+}
 .card2 > .contents {
   box-sizing: border-box;
   min-height: 200px;
@@ -224,41 +260,29 @@ body {
 .card2 > .contents > h1 { 
     margin: 0;
 }
-/*text gradient*/
-.gradient-text {
-  background: conic-gradient(#ec8c86,#d78191,#c1759c,#8eabcb,#7cbddb,#91c6a8,#b4d48d,#dfc17e,#ec8c86);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-size: 5em;
-  font-weight: bold;
+.card3 { 
+  border-radius: 0px;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+  display: inline-block;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 16px;
+  min-width: 275px;
+  overflow: hidden;
 }
-/*fotogragfia anys 70*/
-.picture70block { 
+.card3 > img { 
   box-sizing: border-box;
+  width: 10%;
+}
+.card3 > div { 
+  box-sizing: border-box;
+  min-height: 200px;
   padding: 16px;
-  width: 100%;
+}
+.card3 > div > h1 { 
+  margin: 0;
 }
 
-.picture70img { 
-  border-radius: 16px;
-  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.20) , 0px 2px 17px 0px rgba(0,0,0,0.20);
-  box-sizing: border-box;
-  filter: saturate(150%);
-  width: 100%;
-}
-/*fotografia estil polaroid*/
-.polaroidBlock { 
-  box-sizing: border-box;
-  padding: 32px;
-  width: 100%;
-}
-.polaroidFrame { 
-  border-radius: 8px;
-  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.20);
-  padding: 16px;
-  transform: rotate3d(0, 0, 1, 358deg);
-}
 /*foto estil vintage*/
 .vintageBlock {
   box-sizing: border-box;
@@ -297,13 +321,6 @@ body {
   padding-top: 10px;
 }
 /*pie de pantalla*/
-body {
-  margin: 0;
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 footer {
   background: rgba(30, 30, 30, 0.95);
   color: #eee;
@@ -314,35 +331,27 @@ footer {
 }
 
 .footerCol {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1fr 1fr 1fr 1fr;
   min-width: 200px;
   margin: 10px;
 }
 
-.footerCol h3 {
-  border-bottom: 2px solid #66ccff;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-}
-
-.footerCol ul {
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1fr 1fr 1fr 1fr;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footerCol ul li {
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1fr 1fr 1fr 1fr;
   margin: 6px 0;
-}
-
-.footerCol a {
-  color: #66ccff;
-  text-decoration: none;
-}
-
-.footerCol a:hover {
-  text-decoration: underline;
 }
 
 .footerBottom {
@@ -375,7 +384,7 @@ footer {
 }
 
 /*Primera columna*/
-.taulaExemple td:first-child,
+
 .taulaExemple th:first-child{
   font-weight: 600;
   background-color: rgba(0, 64, 128, 0.05);
@@ -420,4 +429,175 @@ footer {
   z-index: 0;
   height: 100vh;
   max-height: 927px;
+}
+.autocenterContainer {
+  justify-items: center;
+  margin: auto;
+  padding: 20px;
+}
+.boxesContainer {
+  --horizPadding: 16px;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding-left: var(--horizPadding);
+  padding-right: var(--horizPadding);
+  width: calc(100% - 2 * var(--horizPadding)); /* 100% - 32px */
+  margin: -8px;
+  align-items: stretch; 
+}
+.boxesContainer > .box { 
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: 23%;
+  margin: 1%;
+  box-sizing: border-box;
+  background-color: #dfdfdf;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  aspect-ratio: 1.3 / 1;
+  overflow: hidden;
+}
+.boxesContainer > .box > p {
+  text-align: center;
+}
+/*alineacion inconos amarillo caja gris*/
+.boxesContainer > .box > p:first-child { 
+  font-size: 2em;
+  margin: 0;
+}
+.boxesContainer > .box > p:last-child { 
+  margin: 0;
+}
+ul{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  max-width: 896px;
+  margin-top: 84px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.002em;
+}
+.column {
+  display:flex;
+  flex: 1;
+  margin: 0 10px;
+  margin: 10px 0;
+  justify-content: space-between;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+ HEAD
+.container {
+display: flex; /* Alinea las imágenes en línea */
+justify-content: center; /* Centra las imágenes horizontalmente */
+gap: 50px; /* Espacio entre las imágenes */
+flex-wrap: wrap; /* Permite que las imágenes se ajusten si no caben en una línea */
+}
+
+.image-box {
+display: flex;
+flex-direction: center; /* Coloca la imagen y el texto en columna */
+align-items: center; /* Centra el contenido (imagen y texto) */
+text-align: center; /* Centra el texto */
+}
+
+.image-box img {
+max-width: 150px; /* Ajusta el tamaño de las imágenes */
+height: auto; /* Mantiene la proporción */
+}
+.col4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px;
+  list-style: none;
+  margin: 0 auto;
+}
+.col4 > li {
+  flex: 0 0 calc(25% - 32px);
+  max-width: calc(25% - 32px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.col4 > li img {
+  display: block;
+  margin-bottom: 8px;
+  width: 60px;
+  height: auto;
+}
+.col4 > li h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.col3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px;
+  list-style: none;
+  margin: 0 auto;
+}
+.col3 > li {
+  flex: 0 0 calc(33.333% - 32px);
+  max-width: calc(33.333% - 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.col3 > li img {
+  display: block;
+  margin-bottom: 8px;
+  width: 60px;
+  height: auto;
+}
+.col3 > li h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.col2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px;
+  list-style: none;
+  margin: 0 auto;
+}
+.col2 > li {
+  flex: 0 0 calc(30% - 32px);
+  max-width: calc(30% - 32px);
+  display: flex;
+  margin: 5% 10%;
+  flex-direction: column;
+  align-items: center;
+}
+.col2 > li img {
+  display: block;
+  margin-bottom: 8px;
+  width: 100%;
+  height: auto;
+}
+.col2 > li a {
+  text-align: center;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
