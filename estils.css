@@ -1,0 +1,734 @@
+/*ROOT/GENERAL*/
+:root{ 
+  --nav-h: 64px;      /* àmbit global */
+  --page-max: 980px;  /* àmbit global */
+  --glass-bg: rgba(255,255,255,0.45);
+  --glass-bd: rgba(255,255,255,0.6);
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+  background: #fafcff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+h1 {
+  max-width: 47%; 
+  font-weight: bolder; 
+  font-size: 2.7rem;
+  text-align: center;
+}
+
+button {
+  background-color: rgb(255, 104, 117);
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.main-wrapper {
+  max-width: 1264px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+}
+/*TOPNAV*/
+.topnav {
+  --horizontal-padding: 16px; /* àmbit local */
+  height: var(--nav-h);
+  padding-left: var(--horizontal-padding);
+  padding-right: var(--horizontal-padding);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--glass-bd);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* ===== NAV “FROZEN GLASS” ===== */
+
+.topnav .brand{
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.topnav .menu{
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.topnav .menu a{
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background-color 120ms ease, transform 80ms ease;
+}
+
+.topnav .menu a:hover{
+  background: rgba(255,255,255,0.55);
+  transform: translateY(-1px);
+}
+
+/*nostiky*/
+
+.topnavno {
+  width: 100%;
+  height: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-bottom: 1px solid var(--glass-bd);
+  padding: 0;
+}
+
+.topnavno .menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+.topnavno .menu a{
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background-color 120ms ease, transform 80ms ease;
+}
+
+.topnavno .menu a:hover{
+  background: rgba(255,255,255,0.55);
+  transform: translateY(-1px);
+}
+
+
+/*autocenter*/
+.autocenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  flex: 1;
+  align-items: center;
+  margin: 40px auto;
+}
+.center-text {
+  max-width: 57%;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 20px auto;
+  text-align: center;
+}
+/*targestes o cards*/
+
+.cardsContainer { 
+  --horizPadding: 16px;
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: var(--horizPadding);
+  padding-right: var(--horizPadding);
+  width: calc(100% - 2 * var(--horizPadding));
+}
+.cardsContainer2 { 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+.card0 { 
+  border: solid 1px lightgray;
+  border-radius: 16px;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+  display: inline-block;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 16px;
+  max-width: 35%;
+  min-width: 275px;
+  overflow: hidden;
+}
+.card0 > img { 
+  box-sizing: border-box;
+  width: 86%;
+  margin: 7%;
+  margin-top: 0px;
+}
+.card0 > div { 
+  box-sizing: border-box;
+  min-height: 200px;
+  padding: 16px;
+}
+.card0 > div > h1 { 
+  margin: 0;
+}
+.card1{ 
+  background: center / cover url("./imageHiking.jpg");
+  border: solid 1px lightgray;
+  border-radius: 16px;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 16px;
+  max-width: 275px;
+  min-width: 275px;
+  overflow: hidden;
+}
+.card1 > div { 
+  backdrop-filter: blur(5px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  min-height: 200px;
+  padding: 16px;
+}
+.card1 > div > h1 {
+  margin: 0;
+}
+.card2 {
+  align-items: center;
+  border: solid 1px lightgray;
+  border-radius: 16px;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 16px;
+  max-width: 70%;
+  min-width: 275px;
+  overflow: hidden;
+}
+.backImage {
+  background: center / cover url("./imageTrekking.jpg");
+  border-radius: 100%;
+  box-shadow: inset 0px 1px 15px 9px rgba(0,0,0,0.20);
+  box-sizing: border-box;
+  height: 150px;
+  margin: 16px;
+  overflow: hidden;
+  width: 150px;
+}
+.car2 {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+  background-color: #878787;
+  border-radius: 20px;
+  flex: 0 1 auto;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  max-width: 896px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.card2 > .contents {
+  box-sizing: border-box;
+  min-height: 200px;
+  padding: 16px;
+}
+.card2 > .contents > h1 { 
+    margin: 0;
+}
+.card3 { 
+  border-radius: 0px;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+  display: inline-block;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 16px;
+  min-width: 275px;
+  overflow: hidden;
+}
+.card3 > img { 
+  box-sizing: border-box;
+  width: 10%;
+}
+.card3 > div { 
+  box-sizing: border-box;
+  min-height: 200px;
+  padding: 16px;
+}
+.card3 > div > h1 { 
+  margin: 0;
+}
+
+/*foto estil vintage*/
+.vintageBlock {
+  box-sizing: border-box;
+  padding: 32px;
+  width: 80%;
+}
+
+.vintageFrame {
+  background: linear-gradient(-15deg, #faf7e3, #d7ca99);
+  border-radius: 16px;
+  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.20);
+  padding: 16px;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease-in-out;
+}
+/*retallar text*/
+.truncate-single {
+  width: 250px;             /* amplada màxima */
+  white-space: nowrap;      /* no fer salts de línia */
+  overflow: hidden;         /* amaga el que sobrepassa */
+  text-overflow: ellipsis;  /* mostra ... al final */
+  border: 1px solid #ccc;
+  padding: 4px;
+}
+/* ===== HERO FLEX ===== */
+.hero{
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra verticalment */
+  align-items: center;     /* centra horitzontalment */
+  text-align: center;
+  background:
+    radial-gradient(1200px 300px at 10% 0%, rgba(0,140,255,0.18), transparent 60%),
+    radial-gradient(800px 200px at 90% 0%, rgba(0,200,120,0.15), transparent 60%);
+  padding-top: 10px;
+}
+/*pie de pantalla*/
+footer {
+  background: rgba(30, 30, 30, 0.95);
+  color: #eee;
+  padding: 30px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /*permite adaptabilidad a pantallas pequeñas*/
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1fr 1fr 1fr 1fr;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1fr 1fr 1fr 1fr;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1fr 1fr 1fr 1fr;
+  margin: 6px 0;
+}
+
+.footerBottom {
+  text-align: center;
+  font-size: 0.9em;
+  padding-top: 15px;
+  margin-top: 15px;
+  border-top: 1px solid #444;
+  width: 100%;
+}
+/*taula*/
+.taulaExemple{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/*Cabecera*/
+.taulaExemple thead{
+  background-color: var(--color-header);
+  color: white;
+  text-align: left;
+}
+
+.taulaExemple th,
+.taulaExemple td{
+  padding: 10px 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+/*Primera columna*/
+
+.taulaExemple th:first-child{
+  font-weight: 600;
+  background-color: rgba(0, 64, 128, 0.05);
+}
+
+/*Filas impares*/
+.taulaExemple tbody tr:nth-child(odd){
+  background-color: var(--color-odd-row);
+}
+
+/*Celdas destacadas*/
+.taulaExemple td.destacada{
+  background-color: var(--color-highlight);
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #e0b000;
+}
+
+/*Efecto hover*/
+.taulaExemple tbody tr:hover{
+  background-color: #eef4ff;
+}
+
+        
+.main-nav__nav-link {
+  position: relative;
+  padding-bottom: 17px;
+  font-size: 14px;
+  color: #000;
+  line-height: 16px;
+  letter-spacing: -0.005em;
+}
+.div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+.templatesHero__artwork {
+  position: relative;
+  z-index: 0;
+  height: 100vh;
+  max-height: 927px;
+}
+.autocenterContainer {
+  justify-items: center;
+  margin: auto;
+  padding: 20px;
+}
+.boxesContainer {
+  --horizPadding: 16px;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding-left: var(--horizPadding);
+  padding-right: var(--horizPadding);
+  width: calc(100% - 2 * var(--horizPadding)); /* 100% - 32px */
+  margin: -8px;
+  align-items: stretch; 
+}
+.boxesContainer > .box { 
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: 23%;
+  margin: 1%;
+  box-sizing: border-box;
+  background-color: #dfdfdf;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  aspect-ratio: 1.3 / 1;
+  overflow: hidden;
+}
+.boxesContainer > .box > p {
+  text-align: center;
+}
+/*alineacion inconos amarillo caja gris*/
+.boxesContainer > .box > p:first-child { 
+  font-size: 2em;
+  margin: 0;
+}
+.boxesContainer > .box > p:last-child { 
+  margin: 0;
+}
+ul{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  max-width: 896px;
+  margin-top: 84px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.002em;
+}
+.column {
+  display:flex;
+  flex: 1;
+  margin: 0 10px;
+  margin: 10px 0;
+  justify-content: space-between;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+ HEAD
+.container {
+display: flex; /* Alinea las imágenes en línea */
+justify-content: center; /* Centra las imágenes horizontalmente */
+gap: 50px; /* Espacio entre las imágenes */
+flex-wrap: wrap; /* Permite que las imágenes se ajusten si no caben en una línea */
+}
+
+.image-box {
+display: flex;
+flex-direction: center; /* Coloca la imagen y el texto en columna */
+align-items: center; /* Centra el contenido (imagen y texto) */
+text-align: center; /* Centra el texto */
+}
+
+.image-box img {
+max-width: 150px; /* Ajusta el tamaño de las imágenes */
+height: auto; /* Mantiene la proporción */
+}
+.col4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px;
+  list-style: none;
+  margin: 0 auto;
+}
+.col4 > li {
+  flex: 0 0 calc(25% - 32px);
+  max-width: calc(25% - 32px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.col4 > li img {
+  display: block;
+  margin-bottom: 8px;
+  width: 60px;
+  height: auto;
+}
+.col4 > li h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.col3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px;
+  list-style: none;
+  margin: 0 auto;
+}
+.col3 > li {
+  flex: 0 0 calc(33.333% - 32px);
+  max-width: calc(33.333% - 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.col3 > li img {
+  display: block;
+  margin-bottom: 8px;
+  width: 60px;
+  height: auto;
+}
+.col3 > li h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.col2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 20px;
+  list-style: none;
+  margin: 0 auto;
+}
+.col2 > li {
+  flex: 0 0 calc(30% - 32px);
+  max-width: calc(30% - 32px);
+  display: flex;
+  margin: 5% 10%;
+  flex-direction: column;
+  align-items: center;
+}
+.col2 > li img {
+  display: block;
+  margin-bottom: 8px;
+  width: 100%;
+  height: auto;
+}
+.col2 > li a {
+  text-align: center;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+/* ============================= */
+/*     RESPONSIVE PER MÒBILS     */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* Elements generals */
+  h1 {
+    max-width: 100%;
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .center-text {
+    max-width: 90%;
+    font-size: 1rem;
+  }
+
+  .main-wrapper {
+    padding: 0 10px;
+  }
+
+  /* NAVBAR */
+  .topnav,
+  .topnavno {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .topnav .menu,
+  .topnavno .menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* CARDS */
+  .cardsContainer,
+  .cardsContainer2 {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+
+  .card0,
+  .card1,
+  .card2,
+  .card3 {
+    max-width: 90%;
+    min-width: unset;
+    margin: 12px 0;
+  }
+
+  .card2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .backImage {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* BOXES */
+  .boxesContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .boxesContainer > .box {
+    flex: 0 0 90%;
+    max-width: 90%;
+    aspect-ratio: auto;
+  }/* COLUMNES */
+  .col4 > li,
+  .col3 > li,
+  .col2 > li {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* TAULA */
+  .taulaExemple {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* FOOTER */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerCol {
+    min-width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .topnav .menu a,
+  .topnavno .menu a {
+    font-size: 0.9rem;
+    padding: 6px 8px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 40px 10px;
+  }
+
+  .vintageBlock {
+    width: 95%;
+    padding: 10px;
+  }
+}
