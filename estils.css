@@ -31,11 +31,24 @@ button {
   border-radius: 10px;
   border: none;
 }
+.boton-rosa {
+  background: none;           /* Sin fondo */
+  padding:2%;
+  border: 3px solid pink;     /* Borde rosa */
+  color: pink;                /* Texto rosa */
+  font-size: 16px;            /* Tamaño de letra */
+  cursor: pointer;            /* Mano al pasar el ratón */
+  border-radius: 20px;           
+}
 .main-wrapper {
   max-width: 1264px;
   margin: 0 auto;
   width: 100%;
   padding: 0 16px;
+}
+.centradogeneral {
+  max-width: 1268px;
+  align-self: center;
 }
 /*TOPNAV*/
 .topnav {
@@ -138,7 +151,7 @@ button {
   justify-items: center;
   flex: 1;
   align-items: center;
-  margin: 40px auto;
+  margin:  auto;
 }
 .center-text {
   max-width: 57%;
@@ -158,6 +171,7 @@ button {
   padding-left: var(--horizPadding);
   padding-right: var(--horizPadding);
   width: calc(100% - 2 * var(--horizPadding));
+ 
 }
 .cardsContainer2 { 
   display: grid;
@@ -166,9 +180,11 @@ button {
   justify-content: center;
 }
 .card0 { 
+  
   border: solid 1px lightgray;
   border-radius: 16px;
   box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
+  align-items: stretch;
   display: inline-block;
   flex-direction: column;
   justify-content: space-between;
@@ -177,7 +193,7 @@ button {
   min-width: 275px;
   overflow: hidden;
 }
-.card0 > img { 
+.card0 > img {
   box-sizing: border-box;
   width: 86%;
   margin: 7%;
@@ -215,7 +231,9 @@ button {
   margin: 0;
 }
 .card2 {
-  align-items: center;
+  flex: 1;
+  align-items: stretch;
+  text-align:block; 
   border: solid 1px lightgray;
   border-radius: 16px;
   box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.20);
@@ -226,16 +244,6 @@ button {
   max-width: 70%;
   min-width: 275px;
   overflow: hidden;
-}
-.backImage {
-  background: center / cover url("./imageTrekking.jpg");
-  border-radius: 100%;
-  box-shadow: inset 0px 1px 15px 9px rgba(0,0,0,0.20);
-  box-sizing: border-box;
-  height: 150px;
-  margin: 16px;
-  overflow: hidden;
-  width: 150px;
 }
 .car2 {
   overflow: hidden;
@@ -282,31 +290,6 @@ button {
 .card3 > div > h1 { 
   margin: 0;
 }
-
-/*foto estil vintage*/
-.vintageBlock {
-  box-sizing: border-box;
-  padding: 32px;
-  width: 80%;
-}
-
-.vintageFrame {
-  background: linear-gradient(-15deg, #faf7e3, #d7ca99);
-  border-radius: 16px;
-  box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.20);
-  padding: 16px;
-  transform: rotate(-2deg);
-  transition: all 0.3s ease-in-out;
-}
-/*retallar text*/
-.truncate-single {
-  width: 250px;             /* amplada màxima */
-  white-space: nowrap;      /* no fer salts de línia */
-  overflow: hidden;         /* amaga el que sobrepassa */
-  text-overflow: ellipsis;  /* mostra ... al final */
-  border: 1px solid #ccc;
-  padding: 4px;
-}
 /* ===== HERO FLEX ===== */
 .hero{
   height: 40vh;
@@ -329,31 +312,30 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap; /*permite adaptabilidad a pantallas pequeñas*/
 }
-
-.footerCol {
-  display: flex;
-  flex-direction: column;
-  flex: 1fr 1fr 1fr 1fr;
-  min-width: 200px;
-  margin: 10px;
+/* Línea separadora */
+.footer-divider {
+  border: none;
+  border-top: 1px solid #bbb;   /* Color sutil */
+  margin: 30px auto;
+  width: 100%;
+  max-width: 1200px;
 }
-
+/* Texto legal: alineado con las columnas */
+.footer-legal {
+  text-align: left;
+  max-width: 1200px;
+  margin: 30px auto;
+  line-height: 1.5;
+}
 .footerCol {
   display: flex;
   flex-direction: column;
   flex: 1fr 1fr 1fr 1fr;
   list-style: none;
   padding: 0;
-  margin: 0;
-}
-
-.footerCol {
-  display: flex;
-  flex-direction: column;
-  flex: 1fr 1fr 1fr 1fr;
   margin: 6px 0;
+  min-width: 200px;
 }
-
 .footerBottom {
   text-align: center;
   font-size: 0.9em;
@@ -361,54 +343,7 @@ footer {
   margin-top: 15px;
   border-top: 1px solid #444;
   width: 100%;
-}
-/*taula*/
-.taulaExemple{
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-/*Cabecera*/
-.taulaExemple thead{
-  background-color: var(--color-header);
-  color: white;
-  text-align: left;
-}
-
-.taulaExemple th,
-.taulaExemple td{
-  padding: 10px 14px;
-  border-bottom: 1px solid #ddd;
-}
-
-/*Primera columna*/
-
-.taulaExemple th:first-child{
-  font-weight: 600;
-  background-color: rgba(0, 64, 128, 0.05);
-}
-
-/*Filas impares*/
-.taulaExemple tbody tr:nth-child(odd){
-  background-color: var(--color-odd-row);
-}
-
-/*Celdas destacadas*/
-.taulaExemple td.destacada{
-  background-color: var(--color-highlight);
-  font-weight: bold;
-  text-align: center;
-  border: 2px solid #e0b000;
-}
-
-/*Efecto hover*/
-.taulaExemple tbody tr:hover{
-  background-color: #eef4ff;
-}
-
-        
+}     
 .main-nav__nav-link {
   position: relative;
   padding-bottom: 17px;
@@ -416,19 +351,6 @@ footer {
   color: #000;
   line-height: 16px;
   letter-spacing: -0.005em;
-}
-.div {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-}
-.templatesHero__artwork {
-  position: relative;
-  z-index: 0;
-  height: 100vh;
-  max-height: 927px;
 }
 .autocenterContainer {
   justify-items: center;
@@ -488,34 +410,22 @@ ul{
   line-height: 1.45;
   letter-spacing: -0.002em;
 }
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  column-count: 4;
+  gap: 30px;
+  justify-content:center;
+  max-width: 1200px;
+  margin: 30px auto;
+  width: 100%;
+}
+
 .column {
-  display:flex;
-  flex: 1;
-  margin: 0 10px;
-  margin: 10px 0;
-  justify-content: space-between;
-  text-align: center;
-  list-style: none;
-  padding: 0;
-}
- HEAD
-.container {
-display: flex; /* Alinea las imágenes en línea */
-justify-content: center; /* Centra las imágenes horizontalmente */
-gap: 50px; /* Espacio entre las imágenes */
-flex-wrap: wrap; /* Permite que las imágenes se ajusten si no caben en una línea */
-}
-
-.image-box {
-display: flex;
-flex-direction: center; /* Coloca la imagen y el texto en columna */
-align-items: center; /* Centra el contenido (imagen y texto) */
-text-align: center; /* Centra el texto */
-}
-
-.image-box img {
-max-width: 150px; /* Ajusta el tamaño de las imágenes */
-height: auto; /* Mantiene la proporción */
+  flex: 4;
+  flex-direction: column;
+  min-width: 180px;
 }
 .col4 {
   display: flex;
@@ -601,134 +511,179 @@ height: auto; /* Mantiene la proporción */
   font-size: 1.1rem;
   font-weight: 700;
 }
-/* ============================= */
-/*     RESPONSIVE PER MÒBILS     */
-/* ============================= */
-
+/* Estils que només s'apliquen a "Mòbil" */
 @media (max-width: 768px) {
 
-  /* Elements generals */
-  h1 {
-    max-width: 100%;
-    font-size: 1.8rem;
-    padding: 0 10px;
+}
+@media (max-width: 1200PX) {
+  .topcard3b{
+    position: relative;
+    margin-top: -15%;
+  }
+}
+/*seccion targetas contenedor gris 3 targetas una rosa*/
+.effects-section {
+  background-color: #ececec;
+  color: #070707;
+  padding: 80px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.effects-section h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  color: #333;
+}
+
+/* === FLEXBOX LAYOUT === */
+.cards-flex {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* === TARJETA IMAGEN GRANDE (izquierda) === */
+.card-image {
+  flex: 1.2;
+  margin: 0;           /* Sin margen */
+  padding: 0;          /* Sin padding */
+  border: none;
+  min-width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+  width: 150%;
+  height: 150%;
+  object-fit: cover;        /* Cubre todo el contenedor */
+  display: block;
+  border-radius: 16px;
+  margin: 0;           /* Sin margen */
+  padding: 0;          /* Sin padding */
+  border: none
+}
+
+/* Columna derecha: apiladas */
+.cards-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 280px;
+}
+
+/* Tarjetas base */
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  text-align: left;
+}
+
+/* Tarjeta blanca */
+.card-white {
+  background-color: #fff;
+}
+
+.card-white h4 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.card-white p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* Tarjeta rosa */
+.card-pink {
+  background-color: #ffd6e7;
+  color: #fff;
+  padding: 32px 32px 0; /* 0 en la parte inferior */
+}
+
+.card-pink h4 {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.card-pink p {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.card-pink img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  align-self: stretch;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* === RESPONSIVE: apilar en móvil === */
+@media (max-width: 900px) {
+  .cards-flex {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .center-text {
-    max-width: 90%;
+  .card-image,
+  .cards-right {
+    flex: 1;
+    width: 100%;
+  }
+
+  .effects-section h1 {
+    font-size: 2rem;
+  }
+
+  .intro-text {
     font-size: 1rem;
   }
 
-  .main-wrapper {
-    padding: 0 10px;
-  }
-
-  /* NAVBAR */
-  .topnav,
-  .topnavno {
-    flex-direction: column;
-    height: auto;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .topnav .menu,
-  .topnavno .menu {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* CARDS */
-  .cardsContainer,
-  .cardsContainer2 {
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-  }
-
-  .card0,
-  .card1,
-  .card2,
-  .card3 {
-    max-width: 90%;
-    min-width: unset;
-    margin: 12px 0;
-  }
-
-  .card2 {
-    flex-direction: column;
-    align-items: center;
+  .card-white,
+  .card-pink {
     text-align: center;
-  }
-
-  .backImage {
-    width: 120px;
-    height: 120px;
-  }
-
-  /* BOXES */
-  .boxesContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .boxesContainer > .box {
-    flex: 0 0 90%;
-    max-width: 90%;
-    aspect-ratio: auto;
-  }/* COLUMNES */
-  .col4 > li,
-  .col3 > li,
-  .col2 > li {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  /* TAULA */
-  .taulaExemple {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  /* FOOTER */
-  footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footerCol {
-    min-width: 100%;
-    margin: 10px 0;
   }
 }
-
-@media (max-width: 480px) {
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .topnav .menu a,
-  .topnavno .menu a {
-    font-size: 0.9rem;
-    padding: 6px 8px;
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .hero {
-    height: auto;
-    padding: 40px 10px;
-  }
-
-  .vintageBlock {
-    width: 95%;
-    padding: 10px;
-  }
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+.card {
+flex-direction: column;
+}
+.card-image {
+width: 100%;
+height: 200px;
+}
+.card-content {
+padding: 20px;
 }
